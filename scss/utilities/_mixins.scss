@@ -1,0 +1,30 @@
+@mixin flex($dir: row, $wrap: nowrap, $just: flex-start, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    flex-wrap: $wrap;
+    align-items: $align;
+}
+
+@mixin media($size) {
+    @if $size == 'md' {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    } 
+    @else if $size == 'lg' {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "'#{$size}' is not valid $size argument";
+    }
+}
+
+@mixin roundy($dia:auto) {
+    width: $dia;
+    height: $dia;
+    border-radius: 50%;
+} 

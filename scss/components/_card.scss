@@ -1,0 +1,48 @@
+.card {
+    cursor: pointer;
+    background: $color-primary;
+    border: 2px solid $color-border-primary;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 20px;
+
+    flex: 1 400px;
+    @include flex();
+
+    transition: 0.3s ease;
+
+    &__thumbnail {
+        @include roundy(100px);
+        margin-right: 16px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    &__info {
+        font-family: $font-family-primary;
+        &__name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: $color-font-header;
+            margin-bottom: 5px;
+        }
+        &__desc {
+            max-width: 200px;
+            text-overflow: ellipsis;
+            font-size: 0.8em;
+            font-weight: 400;
+            color: $color-font-desc;
+
+            display: block;
+            line-height: 1.6;
+        }
+    }
+
+    &:hover {
+        border-color: $color-border-focus;
+        box-shadow: 0 6px 18px -8px rgba($color: #000000, $alpha: 0.2);
+    }
+}

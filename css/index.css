@@ -1,0 +1,148 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fcfcfc;
+}
+
+.page {
+  width: 80%;
+  margin: auto;
+  padding: 40px;
+  font-family: "Open Sans", sans-serif;
+}
+.page .header {
+  margin: 20px;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card {
+  cursor: pointer;
+  background: white;
+  border: 2px solid #E0E0E0;
+  border-radius: 6px;
+  padding: 24px;
+  margin: 20px;
+  flex: 1 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  transition: 0.3s ease;
+}
+.card__thumbnail {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 16px;
+  overflow: hidden;
+}
+.card__thumbnail img {
+  width: 100%;
+  height: auto;
+}
+.card__info {
+  font-family: "Open Sans", sans-serif;
+}
+.card__info__name {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #404A51;
+  margin-bottom: 5px;
+}
+.card__info__desc {
+  max-width: 200px;
+  text-overflow: ellipsis;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #92979B;
+  display: block;
+  line-height: 1.6;
+}
+.card:hover {
+  border-color: #13B4E9;
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+.overlay .modal {
+  position: absolute;
+  padding: 20px;
+  border-radius: 6px;
+  border-bottom: 1px solid #fcfcfc;
+  background: white;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  font-weight: 600;
+  color: #404A51;
+}
+
+/*# sourceMappingURL=index.css.map */
