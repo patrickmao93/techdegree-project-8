@@ -24,6 +24,7 @@
 }
 
 @mixin roundy($dia:auto) {
+    overflow: hidden;
     width: $dia;
     height: $dia;
     border-radius: 50%;

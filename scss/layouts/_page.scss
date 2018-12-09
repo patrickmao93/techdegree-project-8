@@ -1,8 +1,13 @@
 .page {
-    width: 80%;
+    width: 90%;
     margin: auto;
-    padding: 40px;
+    padding-top: 40px;
     font-family: $font-family-primary;
+
+    @include media('md') {
+        
+        width: 80%;
+    }
 
     .header {
         margin: 20px;

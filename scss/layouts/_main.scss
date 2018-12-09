@@ -1,3 +1,5 @@
 .main {
-    @include flex($wrap: wrap);
+    @include media('md') {
+        @include flex($wrap: wrap);
+    }
 }

@@ -1,17 +1,71 @@
 .overlay {
+    font-family: $font-family-primary;
     position: fixed;
     width: 100vw;
     height: 100vh;
     background: rgba($color: #000000, $alpha: 0.7);
-    .modal {
-        position: absolute;
-        padding: 20px;
-        border-radius: 6px;
-        border-bottom: 1px solid $color-primary-fade;
-        background: $color-primary;
+    
+}
 
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%)
+
+.modal-wrapper {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal {
+    position: relative;
+    padding: 40px;
+    border-radius: 6px;
+    border-bottom: 1px solid $color-primary-fade;
+    background: $color-primary;
+    box-shadow: 0 6px 20px -6px rgba($color: #000000, $alpha: 0.7);
+    @include flex($dir: column);
+
+
+    &__thumbnail {
+        @include roundy(160px);
+        box-shadow: 0 6px 16px -4px rgba($color: #000000, $alpha: 0.3);
+        margin-bottom: 10px;
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
+
+    &__info {
+        @include flex($dir: column);
+
+        &__name {
+            display: block;
+            font-weight: 600;
+            font-size: 1.5em;
+            color: $color-font-header;
+            line-height: 2;
+        }
+
+        &__desc {
+            display: block;
+            color: $color-font-desc;
+            line-height: 2;
+        }
+
+        &__divider {
+            display: block;
+            min-width: 300px;
+            border-bottom: 1px solid $color-border-primary;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.icn-close {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: -24px;
+    z-index: 1000;
 }

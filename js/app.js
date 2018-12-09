@@ -50,16 +50,13 @@ function generateEmployeeModal(data) {
             <img src="${data.picture.large}" alt="${data.name.first}">
         </div>
         <div class="modal__info">
-            <div class="modal__info__top">
-                <h2>${data.name.first} ${data.name.last}</h2>
-                <span>${data.email}</span>
-                <span>${data.location.city}</span>
-            </div>
-            <div class="modal__info__bottom">
-                <span>${data.phone}</span>
-                <span>${data.location.street}</span>
-                <span>${data.dob.date}</span>
-            </div>
+            <h2 class="modal__info__name">${data.name.first} ${data.name.last}</h2>
+            <span class="modal__info__desc">${data.email}</span>
+            <span class="modal__info__desc">${data.location.city}</span>
+            <div class="modal__info__divider"></div>
+            <span class="modal__info__desc">${data.phone}</span>
+            <span class="modal__info__desc">${data.location.street}</span>
+            <span class="modal__info__desc">${data.dob.date}</span>
         </div>
     `;
     modal.innerHTML = html;
@@ -97,10 +94,9 @@ fetch('https://randomuser.me/api/?results=12&nat=au') //pull 12 results
 //hide overlay on page load
 overlay.style.display = 'none';
 
-//bind click handler to overlay, when user clicks anywhere 
+//when user clicks on anywhere outside of modal window, close overlay
 overlay.addEventListener('click', event => { 
-    console.log(event.target.classList);
-    
-    //if click is outside of modal, close overlay
-    !event.target.classList.includes('modal') && closeOverlay(); 
+    closeOverlay();
 });
+modal.addEventListener('click', event => event.stopPropagation());
+//-------------------------------------------------------------------
