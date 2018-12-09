@@ -3,6 +3,12 @@ const main = document.getElementById("main");
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("modal");
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Generate Employee Card
+// Parameters: data (employee object)
+// Return: data (employee object)
+// Description: generate employee card HTML base on employee information input
+////////////////////////////////////////////////////////////////////////////////////
 function generateEmployeeCard(data) { 
     const html = `
         <div class="card" data-id="${data.id.value}">
@@ -20,11 +26,24 @@ function generateEmployeeCard(data) {
     return data;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Add Event Listener To Employees
+// Parameters: data (employee object), index (index to identify card in DOM)
+// Return: undefined
+// Description: bind click event to the employee card at given index position
+////////////////////////////////////////////////////////////////////////////////////
 function addEventListenerToEmployees(data, index) {
     const employeeCard = document.getElementsByClassName('card')[index];
     employeeCard.addEventListener('click', event => generateEmployeeModal(data));
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Generate Employee Modal
+// Parameters: data (employee object)
+// Return: undefined
+// Description: generate detailed info modal overlay HTML base on employee 
+//              information input
+////////////////////////////////////////////////////////////////////////////////////
 function generateEmployeeModal(data) {
     const html = `
         <div class="modal__thumbnail">
@@ -47,24 +66,41 @@ function generateEmployeeModal(data) {
     displayOverlay();
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Display Overlay
+// Parameters: none
+// Return: undefined
+// Description: show overlay div
+////////////////////////////////////////////////////////////////////////////////////
 function displayOverlay() {
     overlay.style.display = "block";
-    body.classList.add('noscroll');
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Display Overlay
+// Parameters: none
+// Return: undefined
+// Description: hide overlay div
+////////////////////////////////////////////////////////////////////////////////////
 function closeOverlay() {
     overlay.style.display = "none";
-    body.classList.remove('noscroll');
 }
 
-
-fetch('https://randomuser.me/api/?results=12&nat=au')
-    .then(response => response.json())
-    .then(data => data.results)
-    .then(employees => employees.map(employee => generateEmployeeCard(employee)))
-    .then(employees => employees.forEach((employee, index) => addEventListenerToEmployees(employee, index)))
+//fetch fake user info from RandomAPI
+fetch('https://randomuser.me/api/?results=12&nat=au') //pull 12 results
+    .then(response => response.json()) //parse json
+    .then(data => data.results) //data.results contains user entries
+    .then(employees => employees.map(employee => generateEmployeeCard(employee))) //for every employee in the array, generate an employee card
+    .then(employees => employees.forEach((employee, index) => addEventListenerToEmployees(employee, index))) //
     .catch(error => console.log(error));
 
+//hide overlay on page load
 overlay.style.display = 'none';
 
-overlay.addEventListener('click', event => closeOverlay());
+//bind click handler to overlay, when user clicks anywhere 
+overlay.addEventListener('click', event => { 
+    console.log(event.target.classList);
+    
+    //if click is outside of modal, close overlay
+    !event.target.classList.includes('modal') && closeOverlay(); 
+});

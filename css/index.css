@@ -62,10 +62,6 @@ body {
   margin: 20px;
 }
 
-.noscroll {
-  overflow: hidden;
-}
-
 .main {
   display: flex;
   flex-direction: row;
