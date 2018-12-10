@@ -1,4 +1,6 @@
-"use strict"
+//Never forget your semi-colons!
+'use strict';
+
 const body = document.getElementsByTagName("body")[0];
 const main = document.getElementById("main");
 const overlay = document.getElementById("overlay");
@@ -16,10 +18,14 @@ class Employee {
         this.phone = data.phone;
         this.picUrl = data.picture.large;
         this.city = capitalize(data.location.city);
+        //You used double quotes in a lot of places, but decided to use single quotes here. It's better to be consistent and choose one over the other.
+        //Another thing is you chose to use template literals when generating HTML below. Perhaps that would be nice here too?
         this.address = capitalizeEach(data.location.street) + ', ' + capitalize(data.location.state) + ' ' + data.location.postcode;
         this.birthday = formatDate(data.dob.date);
     }
 }
+
+//I'm not sure why but your summary comments hurt my eyes
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Name: Generate Employee Card
@@ -27,7 +33,7 @@ class Employee {
 // Return: data (employee object)
 // Description: generate employee card HTML base on employee information input
 ////////////////////////////////////////////////////////////////////////////////////
-function generateEmployeeCard(data, index) {
+function generateEmployeeCard(data, index) { 
     const html = `
         <div class="card" data-id="${data.id}" data-index="${index}">
             <div class="card__thumbnail">
@@ -51,6 +57,8 @@ function generateEmployeeCard(data, index) {
 // Description: generate detailed info modal overlay HTML base on employee 
 //              information input
 ////////////////////////////////////////////////////////////////////////////////////
+
+//Technically summary comments are enough, but when your function grows to a point where you think some inline comments are helpful, don't be afraid to add them.
 function generateEmployeeModal(data, index) {
     let html = `
         <div class="modal__thumbnail">
@@ -65,7 +73,7 @@ function generateEmployeeModal(data, index) {
             <span class="modal__info__desc">${data.address}</span>
             <span class="modal__info__desc">Birthday: ${data.birthday}</span>
         </div>
-    `
+    `;
     const leftIndex = index - 1;
     const rightIndex = index + 1;
     let leftArrowHtml = '';
@@ -76,7 +84,7 @@ function generateEmployeeModal(data, index) {
             <nav class="left-arrow" id="leftArrow" data-index="${leftIndex}">
                 <svg aria-hidden="true" data-prefix="fas" data-icon="angle-left" class="svg-inline--fa fa-angle-left fa-w-8" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path class="left-arrow__path" fill="#404A51" d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"></path></svg>
             </nav>
-        `
+        `;
     }
     
     if (rightIndex !== numberOfEmployees) {
@@ -111,6 +119,7 @@ function addEventListenerToEmployees(employees) {
     });
 }
 
+//You have summary comments on most functions but neglect them on a select few. Is there a reason for this?
 function addEventListenerToArrow(arrow) {
     if (!arrow) {
         return;
@@ -131,6 +140,8 @@ function addEventListenerToArrow(arrow) {
 // Description: generate detailed info modal overlay HTML base on employee 
 //              information input
 ////////////////////////////////////////////////////////////////////////////////////
+
+//A neat thing you can do instead of mapping is already instantiating a new array of Employees, and doing a this.push on the array upon object creation. Saves you from needing to use .map. Not necessary though, but good to know.
 function storeEmployeeData(employeeArr) {
     numberOfEmployees = employeeArr.length;
     employeeData = employeeArr.map(employee => new Employee(employee));
@@ -186,6 +197,7 @@ function formatDate(dateStr) {
     };
     return d.toLocaleDateString('en-US', config);
 }
+//You did good commenting here, I just wish it was like this throughout your entire file.
 
 //fetch fake user info from RandomAPI
 fetch('https://randomuser.me/api/?results=12&nat=us') //pull 12 results
