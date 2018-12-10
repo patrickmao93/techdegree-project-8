@@ -11,12 +11,15 @@
 </head>
 
 <body>
-    <div class="overlay" id="overlay">
+    <!-- Id of overlay and class of overlay? Why not just use the handy id? -->
+    <div id="overlay">
         <div class="modal-wrapper">
             <div class="icn-close">
+                <!-- Always have an alt for your image -->
                 <img src="assets/times-solid.svg" alt="" width="22" height="22">
             </div>
-            <div id="modal" class="modal"></div>
+            <!-- Same thing goes for the modal id/class here -->
+            <div id="modal"></div>
         </div>
 
     </div>
@@ -24,7 +27,8 @@
         <header class="header">
             <h1>AWESOME STARTUP EMPLOYEE DIRECTORY</h1>
         </header>
-        <main class="main" id="main"></main>
+        <!-- Same thing for main class/id as overlay -->
+        <main id="main"></main>
     </div>
     <script src="js/app.js"></script>
 </body>
