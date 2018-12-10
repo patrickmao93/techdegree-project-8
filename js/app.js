@@ -1,4 +1,6 @@
-"use strict"
+//Never forget your semi-colons!
+'use strict';
+
 const body = document.getElementsByTagName("body")[0];
 const main = document.getElementById("main");
 const overlay = document.getElementById("overlay");
@@ -16,10 +18,14 @@ class Employee {
         this.phone = data.phone;
         this.picUrl = data.picture.large;
         this.city = capitalize(data.location.city);
+        //You used double quotes in a lot of places, but decided to use single quotes here. It's better to be consistent and choose one over the other.
+        //Another thing is you chose to use template literals when generating HTML below. Perhaps that would be nice here too?
         this.address = capitalizeEach(data.location.street) + ', ' + capitalize(data.location.state) + ' ' + data.location.postcode;
         this.birthday = formatDate(data.dob.date);
     }
 }
+
+//I'm not sure why but your summary comments hurt my eyes
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Name: Generate Employee Card
@@ -27,7 +33,7 @@ class Employee {
 // Return: data (employee object)
 // Description: generate employee card HTML base on employee information input
 ////////////////////////////////////////////////////////////////////////////////////
-function generateEmployeeCard(data, index) {
+function generateEmployeeCard(data, index) { 
     const html = `
         <div class="card" data-id="${data.id}" data-index="${index}">
             <div class="card__thumbnail">
@@ -51,6 +57,8 @@ function generateEmployeeCard(data, index) {
 // Description: generate detailed info modal overlay HTML base on employee 
 //              information input
 ////////////////////////////////////////////////////////////////////////////////////
+
+//Technically summary comments are enough, but when your function grows to a point where you think some inline comments are helpful, don't be afraid to add them.
 function generateEmployeeModal(data, index) {
     let html = `
         <div class="modal__thumbnail">
