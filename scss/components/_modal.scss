@@ -3,10 +3,8 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: rgba($color: #000000, $alpha: 0.7);
-    
+    background: rgba($color: #000000, $alpha: 0.7);    
 }
-
 
 .modal-wrapper {
     position: absolute;
@@ -16,6 +14,7 @@
 }
 
 .modal {
+    user-select: none;
     position: relative;
     padding: 40px;
     border-radius: 6px;
@@ -62,10 +61,58 @@
     }
 }
 
+.left-arrow,
+.right-arrow {
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @include roundy(60px);
+    @include flex($just: center);
+    background: $color-primary-dark;
+    opacity: 0.7;
+    transition: 0.2s ease;
+    
+
+    &__path {
+        fill: $color-primary;
+        transition: fill 0.2s ease;
+    }
+
+    &:hover {
+        opacity: 1;
+        box-shadow: 0px 4px 16px -2px rgba($color: #000000, $alpha: 0.5);
+        background: $color-primary;
+
+        .left-arrow__path,
+        .right-arrow__path {
+            fill: $color-border-focus;
+        }
+    }
+
+    svg {
+        display: block;
+        margin: auto;
+        height: 70%;
+        width: auto;
+    }
+}
+
+.left-arrow {
+    left: -80px;
+}
+
+.right-arrow {
+    right: -80px;
+}
+
 .icn-close {
     cursor: pointer;
     position: absolute;
-    right: 5px;
-    top: -24px;
+    background: $color-primary;
+    right: 0px;
+    top: 0px;
     z-index: 1000;
+    @include roundy(50px);
 }
