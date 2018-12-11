@@ -52,6 +52,7 @@ function generateEmployeeCard(data, index) {
 //              information input
 ////////////////////////////////////////////////////////////////////////////////////
 function generateEmployeeModal(data, index) {
+    //modal html
     let html = `
         <div class="modal__thumbnail">
             <img src="${data.picUrl}" alt="${data.firstName}">
@@ -66,11 +67,13 @@ function generateEmployeeModal(data, index) {
             <span class="modal__info__desc">Birthday: ${data.birthday}</span>
         </div>
     `
+    //initiate left and right arrows
     const leftIndex = index - 1;
     const rightIndex = index + 1;
     let leftArrowHtml = '';
     let rightArrowHtml = '';
 
+    //arrow html
     if (leftIndex !== -1) {
         leftArrowHtml = `
             <nav class="left-arrow" id="leftArrow" data-index="${leftIndex}">
@@ -111,6 +114,12 @@ function addEventListenerToEmployees(employees) {
     });
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// Name: Add Event Listener To Arrows
+// Parameters: arrow (dom object)
+// Return: undefined
+// Description: 
+////////////////////////////////////////////////////////////////////////////////////
 function addEventListenerToArrow(arrow) {
     if (!arrow) {
         return;
@@ -121,8 +130,6 @@ function addEventListenerToArrow(arrow) {
         generateEmployeeModal(employeeData[index], index);
     });
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Name: Generate Employee Modal
@@ -148,7 +155,7 @@ function displayOverlay() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-// Name: Display Overlay
+// Name: Close Overlay
 // Parameters: none
 // Return: undefined
 // Description: hide overlay div
