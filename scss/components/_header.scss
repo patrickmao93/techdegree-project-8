@@ -2,4 +2,33 @@
     font-weight: 600;
     line-height: 1.5;
     color: $color-font-header;
+
+    &__search {
+        outline: none;
+        height: 46px;
+        font-weight: 600;
+        border-radius: 23px;
+        border: 2px solid $color-border-primary;
+        text-align: center;
+        width: 90%;
+        color: $color-font-header;
+
+        transition: 0.3s ease;
+
+        @include media('lg') {
+            width: 50%;
+        }
+
+        @include media('xl') {
+            width: 40%;
+        }
+
+        &:focus {
+            border-color: $color-border-focus
+        }
+
+        &::placeholder {
+            color: $color-font-desc;
+        }
+    }
 }

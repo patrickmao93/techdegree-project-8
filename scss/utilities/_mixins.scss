@@ -17,7 +17,11 @@
             @content;
         }
     }
-
+    @else if $size == 'xl' {
+        @media (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
     @else {
         @error "'#{$size}' is not valid $size argument";
     }
@@ -26,6 +30,7 @@
 @mixin roundy($dia:auto) {
     overflow: hidden;
     width: $dia;
+    min-width: $dia;
     height: $dia;
     border-radius: 50%;
 } 

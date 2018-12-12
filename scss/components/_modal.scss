@@ -108,11 +108,24 @@
 }
 
 .icn-close {
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     position: absolute;
-    background: $color-primary;
-    right: 0px;
-    top: 0px;
+    right: 8px;
+    top: 8px;
     z-index: 1000;
-    @include roundy(50px);
+
+    path {
+        fill: $color-border-primary;
+        transition: 0.3s ease;
+    }
+    
+    
+    :hover {
+        path {
+            fill: $color-border-focus;
+        }
+    }
+    
 }

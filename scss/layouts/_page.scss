@@ -5,11 +5,15 @@
     font-family: $font-family-primary;
 
     @include media('md') {
-        
-        width: 80%;
+
     }
 
     .header {
         margin: 20px;
+        @include flex($dir: column);
+
+        &__title {
+            margin-bottom: 20px;
+        }
     }
 }

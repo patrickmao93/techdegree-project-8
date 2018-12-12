@@ -14,9 +14,13 @@
     }
 
     &__thumbnail {
-        @include roundy(100px);
+        @include roundy(50px);
         margin-right: 16px;
         overflow: hidden;
+
+        @include media('md') {
+            @include roundy(100px);
+        }
 
         img {
             width: 100%;
