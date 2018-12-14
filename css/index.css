@@ -147,7 +147,8 @@ body {
 }
 .card:hover {
   border-color: #13B4E9;
-  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 14px -6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
 }
 
 .overlay {
@@ -156,6 +157,7 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
 }
 
 .modal-wrapper {
